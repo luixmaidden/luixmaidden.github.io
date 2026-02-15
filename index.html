@@ -1,59 +1,50 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LX TV | Gaming & Esports</title>
+<title>LX TV</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
 }
 
 body{
+  font-family:'Poppins',sans-serif;
   background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
   color:white;
-  overflow-x:hidden;
+  text-align:center;
 }
-
-/* ===== HERO ===== */
 
 .hero{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
-  padding:20px;
+  padding:100px 20px 60px;
 }
 
-.hero::before{
-  content:"";
-  position:absolute;
-  width:400px;
-  height:400px;
-  background:#6a00ff;
-  filter:blur(150px);
-  opacity:.5;
-  top:20%;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-}
-
-h1{
+.hero h1{
   font-family:'Orbitron',sans-serif;
-  font-size:3.5rem;
+  font-size:3rem;
+  background: linear-gradient(90deg,#00f0ff,#6a00ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
+.tagline{
+  margin-top:15px;
+  opacity:0.8;
+}
+
+.video-section{
+  padding:40px 20px;
+}
+
+.video-container{
+  max-width:800px;
+  margin:auto;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 0 40px rgba(106,0,2
