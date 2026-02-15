@@ -21,6 +21,23 @@ header{
 header h1{
   font-size:48px;
   color:#00f0ff;
+  margin-bottom:10px;
+}
+
+header p{
+  opacity:0.8;
+}
+
+.profile{
+  margin:30px 0;
+}
+
+.profile img{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid #6a00ff;
 }
 
 section{
@@ -36,13 +53,11 @@ section{
   border-radius:10px;
 }
 
-.live{
-  background:#b30000;
-  padding:20px;
+iframe{
+  width:100%;
+  max-width:800px;
+  height:450px;
   border-radius:10px;
-  margin:20px 0;
-  font-weight:bold;
-  display:none;
 }
 
 .links a{
@@ -55,6 +70,16 @@ section{
   background:#6a00ff;
   color:white;
 }
+
+.links a:hover{
+  background:#00f0ff;
+  color:black;
+}
+
+footer{
+  padding:30px;
+  opacity:0.5;
+}
 </style>
 </head>
 
@@ -65,51 +90,41 @@ section{
   <p>Gaming • Streaming • Proyectos Digitales</p>
 </header>
 
+<div class="profile">
+  <img src="foto.jpg" alt="Luix Maidden">
+</div>
+
 <section>
 
-<div id="liveBox" class="live">
-🔴 Estoy en vivo ahora mismo en Twitch  
-<br><br>
-<a href="https://www.twitch.tv/luixmaidden" target="_blank" style="color:white;">
-Ir al directo
-</a>
-</div>
-
-<div class="card">
-  <h2>Sobre mí</h2>
-  <p>Creador de contenido enfocado en gaming y proyectos digitales.</p>
-</div>
-
-<div class="card">
-  <h2>Mis Canales</h2>
-  <div class="links">
-    <a href="https://www.youtube.com/@LX-TV" target="_blank">YouTube</a>
-    <a href="https://www.tiktok.com/@lx.tv" target="_blank">TikTok</a>
-    <a href="https://www.twitch.tv/luixmaidden" target="_blank">Twitch</a>
+  <div class="card">
+    <h2>Video Destacado</h2>
+    <iframe 
+      src="https://www.youtube.com/embed/UWO-i2RhpWg"
+      frameborder="0"
+      allowfullscreen>
+    </iframe>
   </div>
-</div>
+
+  <div class="card">
+    <h2>Sobre mí</h2>
+    <p>Soy creador de contenido enfocado en gaming, streaming y proyectos digitales. Construyo comunidad y desarrollo ideas que impacten.</p>
+  </div>
+
+  <div class="card">
+    <h2>Mis Canales</h2>
+    <div class="links">
+      <a href="https://www.youtube.com/@LX-TV" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@lx.tv" target="_blank">TikTok</a>
+      <a href="https://www.twitch.tv/luixmaidden" target="_blank">Twitch</a>
+    </div>
+  </div>
 
 </section>
 
-<script>
-async function checkLive() {
-  const clientId = "TU_CLIENT_ID";
-  
-  const response = await fetch("https://api.twitch.tv/helix/streams?user_login=luixmaidden", {
-    headers: {
-      "Client-ID": clientId
-    }
-  });
-
-  const data = await response.json();
-
-  if (data.data && data.data.length > 0) {
-    document.getElementById("liveBox").style.display = "block";
-  }
-}
-
-checkLive();
-</script>
+<footer>
+© 2026 Luix Maidden
+</footer>
 
 </body>
 </html>
+
