@@ -6,43 +6,73 @@
 <title>Luix Maidden</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:Arial, sans-serif;
   background: radial-gradient(circle at top, #3b0a63, #140028 70%);
   color:white;
+  overflow-x:hidden;
 }
 
-/* Layout principal */
+/* ===== FONDO PIXEL MINECRAFT ===== */
+.pixel-bg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:-1;
+}
+
+.pixel{
+  position:absolute;
+  width:8px;
+  height:8px;
+  background:#a020f0;
+  opacity:0.4;
+  animation: floatPixel 10s linear infinite;
+}
+
+@keyframes floatPixel{
+  from{ transform:translateY(100vh); opacity:0;}
+  30%{opacity:0.8;}
+  to{ transform:translateY(-20vh); opacity:0;}
+}
+
+/* ===== LAYOUT ===== */
 .container{
   display:grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns:2fr 1fr;
   gap:40px;
   max-width:1400px;
   margin:auto;
   padding:60px 40px;
 }
 
-/* Título */
+/* ===== HEADER ===== */
 header{
-  grid-column: 1 / -1;
+  grid-column:1 / -1;
   text-align:center;
   margin-bottom:40px;
 }
 
 header h1{
-  font-size:70px;
+  font-size:80px;
   font-weight:900;
   background: linear-gradient(90deg,#00f0ff,#a020f0,#ff00ff,#00f0ff);
   background-size:300%;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   animation: gradientMove 6s linear infinite;
+  transition:0.4s;
+}
+
+header h1:hover{
+  transform:scale(1.08);
+  text-shadow:
+    0 0 20px #a020f0,
+    0 0 40px #00f0ff,
+    0 0 80px #ff00ff;
 }
 
 @keyframes gradientMove{
@@ -55,54 +85,34 @@ header p{
   opacity:0.8;
 }
 
-/* Cards */
+/* ===== CARDS ===== */
 .card{
-  background: rgba(40, 0, 80, 0.6);
+  background: rgba(40,0,80,0.6);
   backdrop-filter: blur(12px);
-  border:1px solid rgba(162, 0, 255, 0.3);
-  padding:30px;
   border-radius:20px;
+  padding:30px;
   margin-bottom:30px;
+  border:1px solid rgba(162,0,255,0.3);
+  transition:0.4s;
 }
 
-.card h2{
-  margin-bottom:15px;
-  color:#d18bff;
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 0 30px rgba(160,32,240,0.6);
 }
 
+/* ===== VIDEO ===== */
 iframe{
   width:100%;
   height:315px;
   border-radius:15px;
 }
 
-/* Sidebar */
-.sidebar{
-  background: rgba(20, 0, 50, 0.8);
-  border:1px solid rgba(162, 0, 255, 0.3);
-  padding:30px;
-  border-radius:20px;
-  max-height:85vh;
-  overflow-y:auto;
-}
-
-.sidebar h2{
-  color:#ff77ff;
-  margin-bottom:20px;
-}
-
-.sidebar p{
-  margin-bottom:15px;
-  font-size:14px;
-  line-height:1.6;
-  opacity:0.9;
-}
-
-/* Botones */
+/* ===== BOTONES ROBLOX STYLE ===== */
 .links a{
   display:inline-block;
   margin:8px;
-  padding:10px 20px;
+  padding:12px 22px;
   border-radius:25px;
   text-decoration:none;
   font-weight:bold;
@@ -118,20 +128,77 @@ iframe{
 .x-btn{ background:#000000; }
 
 .links a:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 15px rgba(160,32,240,0.9);
+  transform:scale(1.15) rotate(-2deg);
+  box-shadow:0 0 20px rgba(255,255,255,0.6);
 }
 
-/* Responsive */
+/* ===== SIDEBAR ESPORTS ===== */
+.sidebar{
+  background: rgba(20,0,50,0.85);
+  padding:30px;
+  border-radius:20px;
+  max-height:85vh;
+  overflow-y:auto;
+  position:relative;
+  animation: sidebarEntry 1s ease-out forwards;
+  border:1px solid rgba(162,0,255,0.3);
+}
+
+@keyframes sidebarEntry{
+  from{opacity:0;transform:translateX(40px);}
+  to{opacity:1;transform:translateX(0);}
+}
+
+.sidebar:hover{
+  box-shadow:
+    0 0 30px #a020f0,
+    0 0 60px rgba(0,255,255,0.4);
+}
+
+/* Badge */
+.badge{
+  position:absolute;
+  top:-15px;
+  right:20px;
+  background:linear-gradient(90deg,#ff00ff,#00f0ff);
+  padding:6px 14px;
+  font-size:12px;
+  font-weight:bold;
+  border-radius:20px;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse{
+  from{transform:scale(1);}
+  to{transform:scale(1.1);}
+}
+
+/* Scroll personalizado */
+.sidebar::-webkit-scrollbar{
+  width:8px;
+}
+.sidebar::-webkit-scrollbar-thumb{
+  background:linear-gradient(#a020f0,#00f0ff);
+  border-radius:10px;
+}
+
+/* ===== RESPONSIVE ===== */
 @media(max-width:1000px){
-  .container{
-    grid-template-columns:1fr;
-  }
+  .container{grid-template-columns:1fr;}
 }
 </style>
 </head>
 
 <body>
+
+<!-- Fondo pixel -->
+<div class="pixel-bg">
+  <div class="pixel" style="left:10%;animation-delay:0s;"></div>
+  <div class="pixel" style="left:25%;animation-delay:3s;"></div>
+  <div class="pixel" style="left:40%;animation-delay:6s;"></div>
+  <div class="pixel" style="left:60%;animation-delay:2s;"></div>
+  <div class="pixel" style="left:80%;animation-delay:4s;"></div>
+</div>
 
 <div class="container">
 
@@ -140,24 +207,18 @@ iframe{
   <p>Gaming • Streaming • Proyectos Digitales</p>
 </header>
 
-<!-- CONTENIDO PRINCIPAL -->
+<!-- CONTENIDO -->
 <div>
 
   <div class="card">
     <h2>Video Destacado</h2>
-    <iframe 
-      src="https://www.youtube.com/embed/UWO-i2RhpWg?rel=0&modestbranding=1"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
+    <iframe src="https://www.youtube.com/embed/UWO-i2RhpWg?rel=0" allowfullscreen></iframe>
   </div>
 
   <div class="card">
     <h2>En Vivo en Twitch</h2>
     <iframe
       src="https://player.twitch.tv/?channel=luixmaidden&parent=luixmaidden.github.io"
-      height="400"
-      width="100%"
       allowfullscreen>
     </iframe>
   </div>
@@ -175,24 +236,16 @@ iframe{
 
 </div>
 
-<!-- SIDEBAR BIO -->
+<!-- SIDEBAR -->
 <div class="sidebar">
+  <div class="badge">LIVE CREATOR 🇺🇾</div>
+
   <h2>Sobre Luixmaidden</h2>
-
-  <p><strong>Luixmaidden</strong> es un creador de contenido uruguayo de 38 años, residente en el barrio Cerro de Montevideo. Su camino nace de su pasión por la música, el fútbol y la cultura local.</p>
-
-  <p>Comparte su vida con Maida Lodeiro, su esposa y moderadora. Tienen un hijo de 9 años, apasionado por Roblox, con quien comparte partidas en vivo fortaleciendo el vínculo familiar.</p>
-
-  <p>Hincha de Rampla Juniors y Boca Juniors. En el fútbol juega como guardameta, una filosofía que aplica también en su vida y comunidad.</p>
-
-  <p>Fue cantante de la banda uruguaya de heavy metal La Secta. Participó en Portal al Under en La Cotorra FM 94.3 y formó parte de Radio Vampiria, difundiendo talento nacional.</p>
-
-  <p>Actualmente crea contenido en Twitch, Kick, YouTube y TikTok. Juega Palworld, Minecraft, eFootball, Stumble Guys y Roblox. También realiza segmentos de noticias geek y fútbol.</p>
-
-  <p>Es miembro del equipo de esports uruguayo Abstract Gaming, participante del Friki Fest 2025.</p>
-
-  <p>Su mayor sueño: vivir de la creación de contenido y construir una comunidad fuerte y profesional.</p>
-
+  <p>Creador uruguayo del barrio Cerro de Montevideo. Pasión por la música, el fútbol y la cultura local.</p>
+  <p>Ex cantante de heavy metal, experiencia en radio y creador digital multiplataforma.</p>
+  <p>Streams de Minecraft, Roblox, Palworld, eFootball y más.</p>
+  <p>Miembro de Abstract Gaming – Friki Fest 2025.</p>
+  <p>Objetivo: vivir de la creación de contenido y construir comunidad fuerte.</p>
 </div>
 
 </div>
