@@ -6,10 +6,14 @@
 <title>Luix Maidden</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
-  font-family:Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background: linear-gradient(180deg,#3b0a63,#1a0033);
   color:white;
 }
@@ -22,7 +26,7 @@ body{
   overflow:hidden;
 }
 
-/* Pixel pattern sutil tipo Minecraft */
+/* Fondo pixel sutil */
 .hero::before{
   content:"";
   position:absolute;
@@ -45,7 +49,6 @@ body{
   transition:0.3s;
 }
 
-/* Salto estilo Stumble Guys */
 .hero h1:hover{
   animation: jump 0.5s ease;
 }
@@ -76,7 +79,7 @@ body{
 
 /* ===== CARDS ===== */
 .card{
-  background: rgba(40,0,80,0.7);
+  background: rgba(40,0,80,0.75);
   padding:30px;
   border-radius:18px;
   border:1px solid rgba(255,255,255,0.1);
@@ -84,7 +87,6 @@ body{
   transition:0.3s;
 }
 
-/* Profundidad tipo Roblox */
 .card:hover{
   transform:translateY(-8px);
   box-shadow:0 15px 25px rgba(0,0,0,0.4);
@@ -112,7 +114,7 @@ iframe{
 .tiktok-btn{background:#000;}
 .twitch-btn{background:#9146FF;}
 .kick-btn{background:#53FC18;color:black;}
-.x-btn{background:#000;}
+.x-btn{background:#111;}
 
 .links a:hover{
   transform:scale(1.1);
@@ -124,28 +126,24 @@ iframe{
   padding:30px;
   border-radius:18px;
   border:1px solid rgba(255,255,255,0.1);
-  position:relative;
-}
-
-/* Badge corregido */
-.badge{
-  position:absolute;
-  top:-14px;
-  left:20px;
-  background:linear-gradient(90deg,#ff00ff,#00f0ff);
-  padding:6px 14px;
-  font-size:12px;
-  border-radius:20px;
-  font-weight:bold;
-}
-
-/* Scroll limpio */
-.sidebar{
   max-height:80vh;
   overflow-y:auto;
 }
 
-.sidebar::-webkit-scrollbar{width:6px;}
+.sidebar h2{
+  margin-bottom:15px;
+}
+
+.sidebar p{
+  margin-bottom:10px;
+  line-height:1.5;
+}
+
+/* Scroll personalizado */
+.sidebar::-webkit-scrollbar{
+  width:6px;
+}
+
 .sidebar::-webkit-scrollbar-thumb{
   background:#a020f0;
   border-radius:10px;
@@ -153,7 +151,13 @@ iframe{
 
 /* Responsive */
 @media(max-width:1000px){
-  .container{grid-template-columns:1fr;}
+  .container{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:60px;
+  }
 }
 </style>
 </head>
@@ -167,39 +171,37 @@ iframe{
 
 <div class="container">
 
-<div>
-  <div class="card">
-    <h2>Video Destacado</h2>
-    <iframe src="https://www.youtube.com/embed/UWO-i2RhpWg?rel=0" allowfullscreen></iframe>
-  </div>
+  <div>
+    <div class="card">
+      <h2>Video Destacado</h2>
+      <iframe src="https://www.youtube.com/embed/UWO-i2RhpWg?rel=0" allowfullscreen></iframe>
+    </div>
 
-  <div class="card">
-    <h2>En Vivo en Twitch</h2>
-    <iframe src="https://player.twitch.tv/?channel=luixmaidden&parent=luixmaidden.github.io" allowfullscreen></iframe>
-  </div>
+    <div class="card">
+      <h2>En Vivo en Twitch</h2>
+      <iframe src="https://player.twitch.tv/?channel=luixmaidden&parent=luixmaidden.github.io" allowfullscreen></iframe>
+    </div>
 
-  <div class="card">
-    <h2>Mis Canales</h2>
-    <div class="links">
-      <a href="https://www.youtube.com/@LX-TV" target="_blank" class="youtube-btn">YouTube</a>
-      <a href="https://www.tiktok.com/@lx.tv" target="_blank" class="tiktok-btn">TikTok</a>
-      <a href="https://www.twitch.tv/luixmaidden" target="_blank" class="twitch-btn">Twitch</a>
-      <a href="https://kick.com/luixmaidden" target="_blank" class="kick-btn">Kick</a>
-      <a href="https://x.com/LXTVURUGUAY" target="_blank" class="x-btn">X</a>
+    <div class="card">
+      <h2>Mis Canales</h2>
+      <div class="links">
+        <a href="https://www.youtube.com/@LX-TV" target="_blank" class="youtube-btn">YouTube</a>
+        <a href="https://www.tiktok.com/@lx.tv" target="_blank" class="tiktok-btn">TikTok</a>
+        <a href="https://www.twitch.tv/luixmaidden" target="_blank" class="twitch-btn">Twitch</a>
+        <a href="https://kick.com/luixmaidden" target="_blank" class="kick-btn">Kick</a>
+        <a href="https://x.com/LXTVURUGUAY" target="_blank" class="x-btn">X</a>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="sidebar">
-  <div class="badge">LIVE CREATOR 🇺🇾</div>
-
-  <h2>Sobre Luixmaidden</h2>
-  <p>Creador uruguayo del barrio Cerro de Montevideo.</p>
-  <p>Ex cantante de heavy metal y experiencia en radio.</p>
-  <p>Streams de Minecraft, Roblox, Palworld y más.</p>
-  <p>Miembro de Abstract Gaming – Friki Fest 2025.</p>
-  <p>Objetivo: vivir de la creación de contenido y construir comunidad fuerte.</p>
-</div>
+  <div class="sidebar">
+    <h2>Sobre Luixmaidden</h2>
+    <p>Creador uruguayo del barrio Cerro de Montevideo.</p>
+    <p>Ex cantante de heavy metal y experiencia en radio.</p>
+    <p>Streams de Minecraft, Roblox, Palworld y más.</p>
+    <p>Miembro de Abstract Gaming – Friki Fest 2025.</p>
+    <p>Objetivo: vivir de la creación de contenido y construir comunidad fuerte.</p>
+  </div>
 
 </div>
 
