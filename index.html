@@ -9,23 +9,40 @@
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:#111;
+  background: radial-gradient(circle at top, #2a0f4f, #120026 60%, #090014 100%);
   color:white;
   text-align:center;
 }
 
+/* luces gamer violetas */
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(138,43,226,0.4), transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(75,0,130,0.4), transparent 40%);
+  z-index:-1;
+}
+
 header{
-  padding:60px 20px 30px;
+  padding:80px 20px 40px;
 }
 
 header h1{
-  font-size:48px;
-  color:#00f0ff;
-  margin-bottom:10px;
+  font-size:72px;
+  margin-bottom:15px;
+  background: linear-gradient(90deg,#00f0ff,#a020f0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 header p{
-  opacity:0.8;
+  opacity:0.85;
+  font-size:20px;
 }
 
 .profile{
@@ -33,11 +50,11 @@ header p{
 }
 
 .profile img{
-  width:180px;
-  height:180px;
+  width:200px;
+  height:200px;
   object-fit:cover;
   border-radius:50%;
-  border:4px solid #6a00ff;
+  border:4px solid #a020f0;
 }
 
 section{
@@ -47,38 +64,56 @@ section{
 }
 
 .card{
-  background:#1e1e1e;
+  background: rgba(30, 0, 60, 0.6);
+  backdrop-filter: blur(8px);
+  border:1px solid rgba(138,43,226,0.3);
   padding:30px;
   margin:20px 0;
-  border-radius:10px;
+  border-radius:15px;
+}
+
+.card h2{
+  color:#c770ff;
 }
 
 iframe{
-  width:100%;
-  max-width:800px;
-  height:450px;
+  width:560px;
+  height:315px;
+  max-width:100%;
   border-radius:10px;
+}
+
+.links{
+  margin-top:20px;
 }
 
 .links a{
   display:inline-block;
   margin:10px;
-  padding:12px 25px;
-  border-radius:25px;
+  padding:14px 28px;
+  border-radius:30px;
   text-decoration:none;
   font-weight:bold;
-  background:#6a00ff;
   color:white;
+  transition:0.3s;
 }
 
+/* Botones individuales */
+
+.youtube-btn{ background:#ff0000; }
+.tiktok-btn{ background:#000000; }
+.twitch-btn{ background:#9146FF; }
+.kick-btn{ background:#53FC18; color:black; }
+.x-btn{ background:#000000; }
+
 .links a:hover{
-  background:#00f0ff;
-  color:black;
+  transform:scale(1.08);
+  box-shadow:0 0 15px rgba(160,32,240,0.7);
 }
 
 footer{
   padding:30px;
-  opacity:0.5;
+  opacity:0.6;
 }
 </style>
 </head>
@@ -91,6 +126,7 @@ footer{
 </header>
 
 <div class="profile">
+  <!-- Cambiá foto.jpg por el nombre real de tu imagen -->
   <img src="foto.jpg" alt="Luix Maidden">
 </div>
 
@@ -99,7 +135,7 @@ footer{
   <div class="card">
     <h2>Video Destacado</h2>
     <iframe 
-      src="https://www.youtube.com/embed/UWO-i2RhpWg"
+      src="https://www.youtube.com/embed/UWO-i2RhpWg?rel=0&modestbranding=1"
       frameborder="0"
       allowfullscreen>
     </iframe>
@@ -107,15 +143,20 @@ footer{
 
   <div class="card">
     <h2>Sobre mí</h2>
-    <p>Soy creador de contenido enfocado en gaming, streaming y proyectos digitales. Construyo comunidad y desarrollo ideas que impacten.</p>
+    <p>
+      Soy creador de contenido enfocado en gaming, streaming y proyectos digitales.
+      Construyo comunidad y desarrollo ideas con identidad propia.
+    </p>
   </div>
 
   <div class="card">
     <h2>Mis Canales</h2>
     <div class="links">
-      <a href="https://www.youtube.com/@LX-TV" target="_blank">YouTube</a>
-      <a href="https://www.tiktok.com/@lx.tv" target="_blank">TikTok</a>
-      <a href="https://www.twitch.tv/luixmaidden" target="_blank">Twitch</a>
+      <a href="https://www.youtube.com/@LX-TV" target="_blank" class="youtube-btn">YouTube</a>
+      <a href="https://www.tiktok.com/@lx.tv" target="_blank" class="tiktok-btn">TikTok</a>
+      <a href="https://www.twitch.tv/luixmaidden" target="_blank" class="twitch-btn">Twitch</a>
+      <a href="https://kick.com/luixmaidden" target="_blank" class="kick-btn">Kick</a>
+      <a href="https://x.com/LXTVURUGUAY" target="_blank" class="x-btn">X</a>
     </div>
   </div>
 
@@ -127,4 +168,3 @@ footer{
 
 </body>
 </html>
-
